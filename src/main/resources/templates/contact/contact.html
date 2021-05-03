@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header::common-header"/>
+
+  <body>
+
+    <div th:replace="common/navbar::common-navbar"/>
+
+   <div class="container">
+       <div class="row">
+           <div class="col-md-6 offset-md-3">
+               <div class="card-body">
+                   <div class="text-center">
+                       <h1 th:text="#{contact.h1.text}"></h1>
+                       <p class="lead" th:text="#{contact.p.lead}"></p>
+                       <form id="contactForm"th:action="@{/contact/}" th:object="${feedback}" method="post" class="text-left">
+                            <div class="form-group">
+                                <label for="email" th:text="#{email.form}"></label>
+                                <input type="email" id="email" th:field ="*{email}" class="form-control"/>
+                            </div>
+
+                           <div class="form-group">
+                               <label for="firstName" th:text="#{firstname.form}"></label>
+                               <input type="text" id="firstName" th:field ="*{firstName}" class="form-control"/>
+                           </div>
+
+                           <div class="form-group">
+                               <label for="lastName" th:text="#{lastname.form}"></label>
+                               <input type="text" id="lastName" th:field ="*{lastName}" class="form-control"/>
+                           </div>
+
+                           <div class="form-group">
+                               <label for="feedback" th:text="#{feedback.form}"></label>
+                               <textarea  id="feedback" th:field ="*{feedback}" class="form-control"/>
+                           </div>
+
+                           <div class="form-group">
+                               <button type="submit" th:text="#{submit.form}" class="btn btn-info"></button>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <div th:replace="common/header::before-body-script"/>
+  </body>
+</html>
