@@ -35,7 +35,14 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item"><a th:href="@{/login/}" class="nav-link" th:text="#{navbar.login.text}"></a></li>
+                    <li class="nav-item"  >
+                        <a th:href="@{/login/}" class="nav-link" th:text="#{navbar.login.text}"></a>
+                    </li>
+                    <li class="nav-item" >
+                        <form id="f" th:action="@{/logout}" method="post" role="form" class="navbar-form">
+                            <button type="submit" class="btn btn-primary" th:text="#{navbar.logout.text}"/>
+                        </form>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
